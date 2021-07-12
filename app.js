@@ -352,3 +352,299 @@ document.write(mydate);
 //Create a date object of the starting date of this Ramadan
 //and alert the number of days past since 1st Ramadan?
 
+var dt = new Date();
+var totalms= dt.getTime();
+var mydate = new Date("18 jun 2015");
+var ms = mydate.getTime();
+
+var diff = totalms-ms;
+var time= diff/(1000*60*60*24)
+document.write(Math.ceil(time) + " days has passed since 1st ramadan 2015");
+
+//10. Write a program that displays in your browser the
+//seconds that elapsed between the reference date and the
+//beginning of 2015.
+
+var dt = new Date("01 jan 2019");
+var totalms= dt.getTime();
+var mydate = new Date("05 jun 2019");
+var ms = mydate.getTime();
+var _seconds = ms - totalms;
+document.write("On reference date : " + mydate + ", <br> " +_seconds/1000 + " seconds had passed since begining of 2015" );
+
+//11. Create a Date object for the current date and time.
+//Extract the hours, reset the date object an hour ahead and
+//finally display the date object in your browser.
+var dt = new Date();
+document.write("Current date: " + dt + "<br>");
+dt.setHours(dt.getHours()-1);
+document.write("1 Hr ago, it was: " + dt + "<br>");
+
+//12. Write a program that creates a date object and show the
+//date in an alert box that is reset to 100 years back?
+
+var dt = new Date();
+document.write("Current date: " + dt + "<br>");
+dt.setFullYear(dt.getFullYear()-100);
+document.write("100 years back , it was: " + dt + "<br>");
+
+//13. Write a program to ask the user about his age. Calculate
+//and show his birth year in your browser.
+var dt = new Date();
+var age = prompt("enter your age");
+var birthyear = dt.getFullYear()-age;
+document.write("Your age is " + age + "<br>");
+document.write("Your birth year is " + birthyear );
+
+
+//14. Write a program to generate your K-Electric bill in your
+//browser. All the amounts should be rounded off to 2
+//decimal places. Display the following fields:
+//a. Customer Name
+//b. Current Month
+//DATE METHODS | JAVASCRIPT
+//Page 5 of 5
+//c. Number of units
+//d. Charges per unit
+//e. Net Amount Payable (within Due Date)
+//f. Late Payment Surcharge
+//g. Gross Amount Payable (after Due Date)
+var dt= new Date();
+var _name = "abc customer";
+var _units = 410;
+var charge_unit = 16;
+var surcharge = 350;
+document.write("<h1>K-Electric Bill</h1> <br>");
+document.write("Customer Name:" + _name + "<br>");
+document.write("Month: july <br>");
+document.write("number of units:" +  _units.toFixed(2) + "<br>");
+document.write("charges per unit :" + charge_unit.toFixed(2) + "<br> <br>");
+var NET_pay = _units*charge_unit;
+document.write("Net amount Payable (withing due date ):" + NET_pay.toFixed(2)+ "<br>");
+document.write("Late payement surcharge:" + surcharge.toFixed(2) + "<br>");
+var late_pay= NET_pay+surcharge;
+document.write("Gross amount payable after duedate :"+ late_pay.toFixed(2) );
+
+//--------------------------------------------------------------------
+//-----------------------------------------
+
+//chap 35 - 38
+
+//1. Write a function that displays current date & time in your
+//browser.
+function disp ()
+{
+    var dt = new Date();
+    document.write(dt);
+}
+disp();
+
+//2. Write a function that takes first & last name and then it
+//greets the user using his full name.
+
+function Fname(a,b)
+{
+    document.write("welcome , " + a + " " + b );
+}
+
+Fname("ali", "ahmed");
+
+//3. Write a function that adds two numbers (input by user)
+//and returns the sum of two numbers.
+
+function sum (a,b)
+{
+    return a+b;
+}
+document.write(sum(5,6));
+
+
+//4. Calculator:
+//Write a function that takes three arguments num1, num2
+//& operator & compute the desired operation. Return and
+//show the desired result in your browser.
+
+
+function calc(a,b,c)
+{
+    if(c=='+')
+    return a+b;
+    if(c=='-')
+    return a-b;
+    if(c=='/')
+    return a/b;
+    if(c=='*')
+    return a*b;
+
+}
+document.write( calc(2,5,"+") + " <br>"); 
+document.write( calc(2,5,"-") + " <br>"); 
+document.write( calc(2,5,"/") + " <br>"); 
+document.write( calc(2,5,"*") + " <br>"); 
+
+//5. Write a function that squares its argument.
+
+function sq(a)
+{
+    return a*a;
+}
+
+//6. Write a function that computes factorial of a number.
+
+function factorial (n){
+    j = 1;
+    for(i=1;i<=n;i++){
+      j = j*i;
+    }
+    return j;
+  }
+
+document.write(factorial(5));
+
+//7. Write a function that take start and end number as inputs
+//& display counting in your browser.
+
+function count (a,b)
+{
+    for(i=a;i<=b;i++)
+    {
+        document.write(i+ "<br>");
+
+    }
+}
+count(5,10);
+
+
+//Write a nested function that computes hypotenuse of a
+//right angle triangle.
+//Hypotenuse2 = Base2 + Perpendicular2
+
+function sq(a)
+{
+    return a*a;
+}
+
+function hyp (b,p)
+{
+   return  Math.sqrt(sq(b) + sq(p));
+
+}
+document.write(hyp(3,9));
+
+//9. Write a function that calculates the area of a rectangle.
+//A = width * height
+//Pass width and height in following manner:
+//i. Arguments as value
+//ii. Arguments as variables
+
+
+function area (w,h)
+{
+    return w*h;
+}
+
+var wid= 50;
+document.write(area(wid,30));
+
+//10. Write a JavaScript function that checks whether a passed
+//string is palindrome or not?
+//A palindrome is word, phrase, or sequence that reads the same backward as
+//forward, e.g., madam.
+
+
+function palindrome(str)
+{
+    var mid = Math.ceil(str.length/2);
+    console.log(mid);
+    var a =true;
+    for(i=0;i<mid;i++)
+    {
+        
+        if(str[i] != str[str.length-1-i])
+     { a=false;
+    
+     }
+     
+    }
+    return a;
+
+}
+
+if(palindrome("madam"))
+document.write("string is a palindrome");
+else
+document.write("not a palindrome");
+
+
+
+//12. Write a JavaScript function that accepts a string as a
+//parameter and find the longest word within the string.
+
+var s = "Web Development Tutorial";
+
+function largest(str)
+{
+var a;
+var strsplit = str.split(" ");
+console.log(strsplit);
+
+for(i=0;i<strsplit.length-1;i++)
+{
+    if(strsplit[i].length > strsplit[i+1].length )
+    {
+        a=i;
+    } 
+
+}
+ return strsplit[a];
+}
+
+largest(s);
+
+//13. Write a JavaScript function that accepts two arguments, a
+//string and a letter and the function will count the number of
+//function | JAVASCRIPT
+//Page 3 of 4
+//occurrences of the specified letter within the string.
+//Sample arguments : 'JSResourceS.com', 'o'
+
+var str = "JSResourceS.com"
+var key = "o"
+var count=0;
+function fc (a,b)
+{
+      for(i=0;i<str.length;i++)
+      {
+          if(str[i]==key)
+          count++;
+      }
+ return count;
+}
+console.log(fc(str,key));
+
+
+// The Geometrizer
+// Create 2 functions that calculate properties of a circle, using
+// the definitions here.
+// Create a function called calcCircumference:
+// • Pass the radius to the function.
+// • Calculate the circumference based on the radius, and output
+// "The circumference is NN".
+// Create a function called calcArea:
+// • Pass the radius to the function.
+// • Calculate the area based on the radius, and output "The area
+// is NN".
+// Circumference of circle = 2πr
+// Area of circle = πr2
+
+function calcCircumference (radius) {
+    var circumference = 2*3.142*radius
+    console.log(circumference)
+}
+calcCircumference(2)
+
+function calcArea(radius){
+    var area = 3.142*radius*radius
+    console.log(area)
+}
+calcArea(2)
