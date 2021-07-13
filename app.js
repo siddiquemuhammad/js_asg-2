@@ -648,3 +648,106 @@ function calcArea(radius){
     console.log(area)
 }
 calcArea(2)
+
+//////////////////////////////////////
+/////////////chap 38- 42////////////
+
+//Write a custom function power ( a, b ), to calculate the value of
+//a raised to b.
+
+function pw (a,b)
+{
+    return Math.pow(a,b);
+}
+
+console.log(pw(5,3));
+
+//Any year is entered through the keyboard. Write a function to
+//determine whether the year is a leap year or not.
+
+var yr = prompt("enter year");
+function isLeapYear(year) {
+    return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
+}
+
+if(isLeapYear(yr))
+console.log("given year is a leap year")
+else
+console.log("not a leap year");
+
+
+//3. If the lengths of the sides of a triangle are denoted by a, b, and
+//c, then area of triangle is given by
+//area = S(S − a)(S − b)(S − c)
+//where, S = ( a + b + c ) / 2
+
+function s (a,b,c)
+{
+    return((a+b+c)/2);
+}
+var a=5,b=6,c=7;
+var s = s(a,b,c)
+function area(s,a,b,c)
+{
+    return (s*(s-a)*(s-b)*(s-c));
+}
+console.log("area is " + area(s,a,b,c))
+
+
+//4. Write a function that receives marks received by a student in 3
+//subjects and returns the average and percentage of these
+//marks. there should be 3 functions one is the mainFunction
+//and other are for average and percentage. Call those functions
+//from mainFunction and display result in mainFunction.
+ function calcAvg (mth,eng,pak)
+ {
+    return (mth+eng+pak)/3;
+ }
+ function calcperc(mth,eng,pak)
+ {
+     return (mth+eng+pak)/300*100;
+ }
+function main(a,b,c)
+{
+    
+    console.log("avg is "+ calcAvg(a,b,c) + " percentage is " + calcperc(a,b,c) );
+}
+main(80,80,80);
+
+//5. You have learned the function indexOf. Code your own custom
+//function that will perform the same functionality. You can code
+//for single character as of now.
+
+function indof(arr,key)
+{
+
+    for(i=0;i<arr.length;i++)
+    {
+        if(arr[i]==key)
+        return i;
+     
+
+    }
+    return -1;
+}
+var a ="string to search"
+var key = "j";
+console.log(indof(a,key));
+
+//6. Write a function to delete all vowels from a sentence. Assume
+//that the sentence is not more than 25 characters long.
+
+var sentence = " qweqweqweqwaeiou ksdmkdmkmfkvmfk lsl";
+function delvowel(str)
+{
+    for(i=0;i<str.length;i++)
+    {
+        if(str[i]=="a" || str[i]=="e" || str[i]=="i" || str[i]=="o" ||str[i]=="u" )
+        str.splice(i,1);
+   }
+}
+console.log(sentence);
+delvowel(sentence);
+console.log(sentence);
+
+//
