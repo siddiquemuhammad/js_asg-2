@@ -736,18 +736,137 @@ console.log(indof(a,key));
 
 //6. Write a function to delete all vowels from a sentence. Assume
 //that the sentence is not more than 25 characters long.
-
+//&& str[i]!="e" && str[i]!="i" && str[i]!="o" && str[i]!="u"
 var sentence = " qweqweqweqwaeiou ksdmkdmkmfkvmfk lsl";
 function delvowel(str)
 {
+    var newstr;
     for(i=0;i<str.length;i++)
     {
-        if(str[i]=="a" || str[i]=="e" || str[i]=="i" || str[i]=="o" ||str[i]=="u" )
-        str.splice(i,1);
+        if(str[i]!="a" && str[i]!="e" && str[i]!="i" && str[i]!="o" && str[i]!="u")
+       {
+            newstr= newstr + str[i];
+       } 
+      
    }
+   return newstr;
 }
 console.log(sentence);
-delvowel(sentence);
-console.log(sentence);
+console.log(delvowel(sentence));
 
-//
+//7. Write a function with switch statement to count the number of
+//occurrences of any two vowels in succession in a line of text.
+
+var a ="Pleases read this application and give me gratuity"
+
+function checkvowel(str)
+{
+    switch(str)
+    {
+        case  "a" :
+        return true;
+        break;
+        case  "e" :
+        return true;
+        break;
+        case  "i" :
+        return true;
+        break;
+        case  "o" :
+        return true;
+        break;
+        case  "u" :
+        return true;
+        break;
+        default :
+        return false;
+
+    }
+
+}
+// console.log(checkvowel("a"));
+// console.log(checkvowel("b"));
+// console.log(checkvowel("c"));
+
+function checkSuccessiveVowel(str)
+{
+    count=0;
+    for(i=0;i<str.length;i++)
+    if(checkvowel(str[i]) && checkvowel(str[i+1]))
+    {
+        count++;
+        console.log(str[i]+str[i+1]);
+    }
+        return count;
+}
+
+console.log(checkSuccessiveVowel(a));
+
+//8. The distance between two cities (in km.) is input through the
+//keyboard. Write four functions to convert and print this
+//distance in meters, feet, inches and centimeters.
+
+var inp = prompt("enter distance b/w two cities in km");
+console.log("distance in Km " + inp) ;
+console.log("distance in meter " + KmToMeter(inp)) ;
+console.log("distance in feet " + KmToFeet(inp)) ;
+console.log("distance in inches " + KmToInches(inp)) ;
+console.log("distance in centimeters " + KmToCentimeters(inp)) ;
+
+
+function KmToMeter(input)
+{
+    return (input*1000);   
+}
+function KmToFeet(input)
+{
+    return (input*3281);
+}
+function KmToInches(input)
+{
+    return (input*39370);
+}
+function KmToCentimeters(input)
+{
+    return (input*100000);
+}
+
+//9. Write a program to calculate overtime pay of employees.
+//Overtime is paid at the rate of Rs. 12.00 per hour for every hour
+//worked above 40 hours. Assume that employees do not work
+//for fractional part of an hour.
+
+//var a = prompt("enter hours worked");
+
+function paycalulate(hrs)
+{
+    var hrs= Math.floor(hrs);
+    if(hrs<=40)
+    {
+    return 0;
+    }
+    else if(hrs>40)
+    {
+        var ovHrs = Math.floor(hrs)-40;
+        return (ovHrs*12);
+    }
+
+
+}
+
+console.log("overtime for employee who worked 40 hrs is " + paycalulate(40));
+console.log("overtime for employee who worked 41 hrs is " + paycalulate(41));
+console.log("overtime for employee who worked 50 hrs is " + paycalulate(50.9));
+
+
+//10. A cashier has currency notes of denominations 10, 50 and
+//100. If the amount to be withdrawn is input through the
+//keyboard in hundreds, find the total number of currency notes
+//of each denomination the cashier will have to give to the
+//withdrawer.
+
+var inp = prompt();
+
+document.write("You will have "+ Math.floor(inp/100) + " hundred note(s) " + Math.floor((inp%100)/50) + " 50 notes " + " and " + Math.floor(((inp%100)%50)/10) + " note(s) of 10");
+
+
